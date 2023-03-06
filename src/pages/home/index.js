@@ -1,8 +1,8 @@
 import React from "react";
-import { Container } from "@mui/system";
+import { NavBar } from "../../components/NavBar";
 
 export const HomePage = () =>{
     return(
-        <h1>Hola</h1>
+        <NavBar />
     )
 }

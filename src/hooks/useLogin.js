@@ -2,7 +2,6 @@ import axios from 'axios'
 import {useState} from "react";
 import { useAlerts } from './useAlerts';
 import { useNavigate } from 'react-router-dom'
-import Cookies from 'universal-cookie';
 import jwt from 'jwt-decode';
 
 
@@ -11,7 +10,6 @@ const baseURL = "https://localhost:7021/Users"
 export const useLogin = () => {
     
     const {setalertsData,alertsData} = useAlerts()
-    //const cookies = new Cookies()
     const navigate = useNavigate()
     const [loginData, setloginData] = useState({
         userName: "",
@@ -32,9 +30,8 @@ export const useLogin = () => {
                 password: loginData.password
             }
         }).then(data => {
-            //const decoded = jwt(data.data.result)
             localStorage.setItem('jwt',data.data.result)
-            //navigate("/Home")
+            navigate("/Home")
             
         }
         ).catch(error => {
